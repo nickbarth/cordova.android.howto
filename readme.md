@@ -20,7 +20,7 @@ Plugins
   cordova plugin add org.apache.cordova.statusbar
 
   # Requires Manual Install https://github.com/Wizcorp/phonegap-facebook-plugin/blob/master/platforms/android/README.md#setup-without-eclipse-just-cli
-  cordova plugin add com.phonegap.plugins.facebookconnect --variable APP_ID="APP_ID" APP_NAME="APP"
+  cordova plugin add com.phonegap.plugins.facebookconnect --variable APP_ID="APP_ID" --variable APP_NAME="APP"
 ```
 
 ```
