@@ -3,7 +3,6 @@ How to Android Cordova
 Setup
 ```
   cordova platform add android
-
 ```
 
 Plugins
