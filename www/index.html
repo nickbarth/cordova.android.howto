@@ -1,0 +1,44 @@
+<html>
+<body>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript">
+    function onDeviceReady() {
+      console.log('device ready');
+      if (window.Cordova && navigator.splashscreen) {
+        navigator.splashscreen.hide();
+      }
+      facebookConnectPlugin.browserInit('APP_ID');
+    }
+
+    var suc = function (suc) { alert(JSON.stringify(suc)) };
+    var err = function (err) { alert(JSON.stringify(err)) };
+
+    var MakeBeep = function () {
+      window.record = new Media('neat.mp3', suc, err);
+      record.startRecord()
+
+      window.setTimeout(function () {
+        console.log('new record', record);
+        window.record.stopRecord();
+      }, 4000);
+
+      window.setTimeout(function () {
+        console.log('playing');
+        window.record.play();
+        window.audio = new Audio('/sdcard/neat.mp3');
+        window.audio.play();
+      }, 5000);
+    }
+
+    var Facebook = function () {
+      facebookConnectPlugin.login([], suc, err);
+      //facebookConnectPlugin.getLoginStatus(suc, err);
+    }
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+  </script>
+  <h1>Android Test</h1>
+  <button style="padding: 50px; font-size: 20px;" onclick="MakeBeep()">Click Me</button>
+  <button style="padding: 50px; font-size: 20px;" onclick="Facebook()">Login</button>
+</body>
+</html>
